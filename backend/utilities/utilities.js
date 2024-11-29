@@ -1,11 +1,17 @@
 import { assert, ethers, formatEther, id } from "ethers";
-import CrowdfundingAbi from "./CrowdfundingAbi.json" assert { type: "json" };
+import fs from "fs";
+
+// import CrowdfundingAbi from "./CrowdfundingAbi.json" assert { type: "json" }; //Adjusted ES6 import for json files to support Render platform
 import { contractAddress } from "./contractRefs.js";
 import { rpc_url } from "./contractRefs.js";
 
 const provider = new ethers.JsonRpcProvider(rpc_url);
-const ABI = CrowdfundingAbi.abi;
+// const ABI = CrowdfundingAbi.abi;
 const CampaignStatus = ["Active", "Successful", "Failed"];
+const CrowdfundingAbi = JSON.parse(
+  fs.readFileSync("./utilities/CrowdfundingAbi.json", "utf-8")
+);
+const ABI = CrowdfundingAbi.abi;
 
 const parsedCampaign = (campaign) => {
   return {

@@ -1,4 +1,3 @@
-import "./utilities/CrowdfundingAbi.json" assert { type: "json" };
 import express from "express";
 import { assert, ethers } from "ethers";
 import { getAllCampaigns, fetchUserCampaigns } from "./utilities/utilities.js";
