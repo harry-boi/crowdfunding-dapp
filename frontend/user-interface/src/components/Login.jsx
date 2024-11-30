@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useNavigate } from "react-router-dom";
 
@@ -25,6 +25,12 @@ const Login = ({ walletAddress, setWalletAddress }) => {
       );
     }
   };
+
+  useEffect(() => {
+    if (walletAddress) {
+      navigate("/dashboard");
+    }
+  });
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
