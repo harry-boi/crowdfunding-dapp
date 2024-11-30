@@ -10,7 +10,9 @@ const Dashboard = ({ walletAddress, setWalletAddress }) => {
   const [selectedCampaign, setSelectedCampaign] = useState(null);
 
   useEffect(() => {
-    fetch(`/api/campaigns?userAddress=${walletAddress}`)
+    fetch(
+      `https://crowdfunding-backend-tcmm.onrender.com/api/campaigns?userAddress=${walletAddress}`
+    )
       .then((response) => response.json())
       .then((data) => setUserCampaigns(data));
   }, [walletAddress]);

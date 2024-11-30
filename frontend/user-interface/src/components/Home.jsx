@@ -8,7 +8,7 @@ const Home = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("/api/campaigns")
+    fetch("https://crowdfunding-backend-tcmm.onrender.com/api/campaigns")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
